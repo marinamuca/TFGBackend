@@ -4,3 +4,6 @@ psycopg2>=2.8
 requests
 django-cors-headers
 Pillow
+django-cleanup
+django-allauth
+dj-rest-auth

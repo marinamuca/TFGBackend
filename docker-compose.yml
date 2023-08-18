@@ -25,5 +25,3 @@ services:
       - POSTGRES_PASSWORD=password
     depends_on:
       - db
-
-  

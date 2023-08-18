@@ -24,8 +24,10 @@ router = routers.SimpleRouter()
 
 router.register(r'exhibition', ExhibitionViewSet)
 router.register(r'illustration', IllustrationViewSet)
+router.register(r'user_profile', UserProfileViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/auth/', include('user_auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
