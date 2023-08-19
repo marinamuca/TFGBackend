@@ -152,6 +152,10 @@ REST_FRAMEWORK = {
     ]
 }
 
+REST_AUTH = {
+    'REGISTER_SERIALIZER': 'user_auth.serializers.CustomRegistrationSerializer'
+}
+
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'

@@ -30,16 +30,20 @@ def compress(image, quality):
 
 class UserProfile(models.Model):
     USER_TYPE=(
-        ('ARTIST', 'Artist'),
-        ('VISITOR', 'Visitor'),
+        ('ARTIST', 'ARTIST'),
+        ('VISITOR', 'VISITOR'),
     )
 
     id = models.AutoField(primary_key = True)
     type = models.CharField(blank = False, max_length=7, choices = USER_TYPE)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # following = models.ManyToManyField("self", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.type 
+        return self.user.username 
+    
+    def isArtist(self):
+        return self.type=="ARTIST"
 
 class Exhibition(models.Model):
     id = models.AutoField(primary_key = True)

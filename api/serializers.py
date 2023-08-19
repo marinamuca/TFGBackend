@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import *
 
-
 class IllustrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Illustration
@@ -15,6 +14,7 @@ class ExhibitionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    exhibitions = ExhibitionSerializer(read_only = True, many = True, source = "exhibition_set")
     class Meta:
         model = UserProfile
         fields = '__all__'
