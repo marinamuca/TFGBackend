@@ -29,5 +29,6 @@ router.register(r'user_profile', UserProfileViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path("api/change_profile/", ChangeProfileTypeView.as_view(), name="change_profile"),
     path('api/auth/', include('user_auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

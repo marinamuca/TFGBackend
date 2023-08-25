@@ -17,4 +17,4 @@ class UserProfileSerializer(serializers.ModelSerializer):
     exhibitions = ExhibitionSerializer(read_only = True, many = True, source = "exhibition_set")
     class Meta:
         model = UserProfile
-        fields = '__all__'
+        exclude = ['user']

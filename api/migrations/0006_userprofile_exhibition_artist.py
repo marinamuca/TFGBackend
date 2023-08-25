@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             name='UserProfile',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('type', models.CharField(choices=[('ARTIST', 'Artist'), ('VISITOR', 'Visitor')], max_length=7)),
+                ('is_artist', models.BooleanField()),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
