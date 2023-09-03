@@ -25,10 +25,13 @@ router = routers.SimpleRouter()
 router.register(r'exhibition', ExhibitionViewSet)
 router.register(r'illustration', IllustrationViewSet)
 router.register(r'user_profile', UserProfileViewSet)
+router.register(r'likes', LikesViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path("api/change_profile/", ChangeProfileTypeView.as_view(), name="change_profile"),
+    path("api/check_like/<int:exhibition_id>/", CheckLikeView.as_view(), name="check_like"),
+    path("api/liked_exhibitions/", UserLikedExhibitionsView.as_view(), name="liked_exhibitions"),
     path('api/auth/', include('user_auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -73,5 +73,11 @@ class Illustration(models.Model):
      
     def __str__(self):
         return self.title
-
     
+class Likes(models.Model):
+    id = models.AutoField(primary_key = True)
+    exhibition = models.ForeignKey(Exhibition, on_delete=models.CASCADE)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    
+    class Meta:
+        unique_together = ('exhibition', 'user_profile')

@@ -18,3 +18,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         exclude = ['user']
+
+class LikesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Likes
+        fields = '__all__'
